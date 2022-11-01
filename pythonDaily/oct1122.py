@@ -1,8 +1,13 @@
 import numpy as np
-# BOOK: Linge, Svein; Hans Petter Langtangen. Programming for Computations - Python: 15 (Texts in Computational Science and Engineering) (p. 65). Springer International Publishing. Kindle Edition.
 
-# Loop and Branching
-""" Notes:
+"""
+Book:
+Linge, Svein; Hans Petter Langtangen.
+Programming for Computations
+- Python: 15 (Texts in Computational Science and Engineering)
+Springer International Publishing. Kindle Edition.
+
+Notes:
 
 for loop_variable in some_numbers:
      <code line 1>
@@ -11,7 +16,7 @@ for loop_variable in some_numbers:
 for loop_variable in range(start, stop, step):
 
 """
-
+# Loop and Branching
 # 3.1 The for loop
 for i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:
     print ('{:d}+5 = {:d}'.format(i,i+5))
@@ -58,3 +63,5 @@ listB = list(range(1, 11))
 listC = list(range(11))
 listD = list(range(1, -11, -1))
 print('{listA}, \n{listB}, \n{listC}, \n{listD}'.format(listA=listA, listB=listB, listC=listC, listD=listD))
+
+# 3.2 The while loop
