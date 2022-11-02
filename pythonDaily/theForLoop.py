@@ -3,8 +3,7 @@ import numpy as np
 """
 Book:
 Linge, Svein; Hans Petter Langtangen.
-Programming for Computations
-- Python: 15 (Texts in Computational Science and Engineering)
+Programming for Computations - Python: 15 (Texts in Computational Science and Engineering)
 Springer International Publishing. Kindle Edition.
 
 Notes:
