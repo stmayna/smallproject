@@ -18,3 +18,5 @@ plt.plot(t, 0*t, 'g--')
 plt.xlabel('Time (s)')
 plt.ylabel('Heigt (m)')
 plt.show()
+
+# %%
