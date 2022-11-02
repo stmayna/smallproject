@@ -1,20 +1,5 @@
 import numpy as np
 
-"""
-Book:
-Linge, Svein; Hans Petter Langtangen.
-Programming for Computations - Python: 15 (Texts in Computational Science and Engineering)
-Springer International Publishing. Kindle Edition.
-
-Notes:
-
-for loop_variable in some_numbers:
-     <code line 1>
-     <code line 2>
-     
-for loop_variable in range(start, stop, step):
-
-"""
 # Loop and Branching
 # 3.1 The for loop
 for i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]:
