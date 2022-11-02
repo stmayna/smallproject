@@ -60,7 +60,3 @@ plt.plot(x, y, 'r--', x[0], y[0], 'bo', x[-1], y[-1], 'b*')
 plt.xlabel('x')
 plt.ylabel('y')
 plt.show()
-
-
-
-# %%
