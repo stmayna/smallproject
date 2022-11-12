@@ -6,8 +6,9 @@ h[0] = 1.60; h[1] = 1.85; h[2] = 1.75; h[3] = 1.80; h[4] = 0.50
 
 sum = 0
 i = 0
-while h[i] < 5:
+while i < N:
     sum = sum + h[i]
+    i = i + 1
 average = sum/N
 
 print('Average height: {:g} meter'.format(average))
