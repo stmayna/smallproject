@@ -1,3 +1,4 @@
+# Completed
 '''
 Circle Vs Rectangle
 Circle:
@@ -14,11 +15,7 @@ the area of the circle.
 
 Right answer:
 b = 271.
-'''
 
-# Answer:
-
-'''
 Formula:
 Area of Rectangle = l x w = a x b
 Area of Circle = Phi x r^2 

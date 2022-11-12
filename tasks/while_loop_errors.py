@@ -1,3 +1,4 @@
+# Completed
 some_number = 0
 i = 0
 while i < 11:

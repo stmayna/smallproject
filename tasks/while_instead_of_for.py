@@ -1,5 +1,6 @@
 import numpy as np
 
+# Completed
 N = 5
 h = np.zeros(N)     # heights of family members (in meter)
 h[0] = 1.60; h[1] = 1.85; h[2] = 1.75; h[3] = 1.80; h[4] = 0.50 

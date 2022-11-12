@@ -1,3 +1,4 @@
+# Completed
 a = int(input('Give an integer a: '))
 b = int(input('Give an integer b: '))
 
