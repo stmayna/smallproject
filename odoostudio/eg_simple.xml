@@ -1,0 +1,58 @@
+<t t-name="studio_report_document">
+<div class="page"/>
+    <xpath expr="/t/div" position="inside">
+    <style>
+        hr { border-bottom: 2px black solid; border-top: 2px black solid; height: 1px; margin-top: 5px}
+    </style>
+    <header>
+    <div class="text-center">
+    <h5><strong>YOUR COMPANY</strong></h5>
+    <h6><strong>YOUR COMPANY</strong></h6>
+    <br/>
+    </div>
+        <div class="row">
+            <div class="col-2">
+                <img class="img-fluid" src="SOURCETOYOURIMAGE"/>
+            </div>
+            <div class="col-5">
+                <h7><strong>YOUR COMPANY</strong></h7><br/>
+                <h7>YOUR COMPANY</h7><br/>
+                <h7>YOUR COMPANY</h7><br/><br/>
+            </div>
+            <div class="col-5">
+                <h7><strong>YOUR COMPANY</strong></h7><br/>
+                <h7>YOUR COMPANY</h7><br/>
+                <h7>YOUR COMPANY</h7>
+            </div>
+        </div>
+    </header>
+    <hr/>
+    </xpath>
+        <xpath expr="/t/div/hr" position="after">
+        <div class="row my-3">
+            <div class="col">
+                <br/>
+                <h5 class="text-center"><strong>WORK ORDER</strong></h5>
+                <br/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <p><strong>WO NUMBER: </strong><span t-field="doc.name"/></p>
+            </div>
+            <div class="col-6">
+                <p><strong>RESPONSIBLE: </strong><span t-field="doc.user_id"/></p>
+            </div>
+            <div class="col-6">
+                <p><strong>EQUIPMENT: </strong><span t-field="doc.equipment_id"/></p>
+            </div>
+            <div class="col-6">
+                <p><strong>SCHEDULE DATE: </strong><span t-field="doc.schedule_date"/></p>
+            </div>
+            <div class="col-12">
+                <p><strong>MAINTENANCE TYPE: </strong><span t-field="doc.x_studio_maintenance_type"/></p>
+            </div>
+        </div>
+        <br/>
+    </xpath>
+</t>

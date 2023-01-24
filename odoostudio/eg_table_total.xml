@@ -1,0 +1,149 @@
+<t t-name="studio_report_document">
+    <div class="page"/>
+    <xpath expr="/t/div" position="inside">
+    <style>
+        hr { border-bottom: 2px black solid; border-top: 2px black solid; height: 1px; margin-top: 5px}
+        #signature {
+        border-bottom: 1px solid black; height: 5px}
+    </style>
+    <header>
+        <br/>
+        <div class="row">
+            <div class="col-2">
+                <img class="img-fluid" src="/web/image/1424-bc730fb7/05e444ce-c7c6-4d62-b8c8-370e7db95e14.jfif"/>
+            </div>
+            <div class="col-10">
+                <h1><strong>Your Company</strong></h1>
+                <h8><strong>Your Company</strong></h8>
+                <h8>Your Company</h8><br/>
+                <h8>Your Company</h8><br/>
+                <h8><strong>Your Company</strong></h8>
+                <h8>Your Company</h8><br/>
+                <h8>Your Company</h8><br/>
+            </div>
+        </div>
+    </header>
+    <hr/>
+    </xpath>
+    <xpath expr="/t/div/hr" position="after">
+        <div>
+            <div>
+            <h3 class="text-center"><strong>Your Company</strong></h3>
+            </div>
+                <br/>
+            <table width="120%">
+                <tr>
+                <th>Your Company <span t-field="doc.invoice_date"/></th>
+                <td><span t-field="doc.partner_id"/></td>
+                </tr>
+                <tr>
+                <th rowspan="3">Your Company <span t-field="doc.name"/></th>
+                <td><span t-field="doc.partner_id.street"/> <span t-field="doc.partner_id.street2"/></td>
+                </tr>
+                <tr>
+                <td><span t-field="doc.partner_id.city"/> <span t-field="doc.partner_id.state_id"/> <span t-field="doc.partner_id.zip"/></td>
+                </tr>
+                <tr>
+                <td><span t-field="doc.partner_id.country_id"/></td>
+                </tr>
+            </table>
+            <div>
+                <br/>
+                <p>
+                    Your Company <strong><span t-field="doc.x_studio_agreement_doc"/></strong> Your Company <span t-field="doc.x_studio_agreement_date"/>, Your Company <span t-field="doc.company_id"/> Your Company <span t-field="doc.partner_id"/> Your Company
+                </p>
+                <br/>
+                <p>
+                    Your Company
+                </p>
+            </div>
+            <div class="col-6">
+                Your Company <span t-esc="doc.invoice_date.strftime('%B/%Y')"/>
+            </div>
+            <div class="col-6">
+                Your Company: <span t-field="doc.amount_total"/>
+            </div>
+            <div class="col-12">
+                <br/>
+                <strong>Your Company:</strong> 
+            </div>
+        </div>
+    </xpath>
+    <xpath expr="/t/div" position="after">
+        <table class="table o_report_block_table">
+            <thead>
+                <tr>
+                    <th>Your Company</th>
+                    <th>Your Company</th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-set="i" t-value="1"/>
+                <tr t-foreach="doc.invoice_line_ids" t-as="table_line">
+                    <td>
+                    <span t-field="table_line.product_id"/>
+                    </td>
+                    <td>
+                    <span t-field="table_line.price_subtotal"/>
+                    </td>
+                </tr>
+                    <tr>
+                    <td>
+                        <strong>Your Company</strong>
+                    </td>
+                    <td>
+                        <span t-field="doc.amount_untaxed"/>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>
+                        <strong>Your Company</strong>
+                    </td>
+                    <td>
+                        <span t-field="doc.amount_tax"/>
+                    </td>
+                    </tr>
+                    <tr>
+                    <td>
+                        <strong>Your Company</strong>
+                    </td>
+                    <td>
+                        <span t-field="doc.amount_total"/>
+                    </td>
+                    </tr>
+            </tbody>
+            </table>
+    </xpath>
+    <xpath expr="/t/div/table" position="after">
+        <br/>
+    <p>
+        Your Company<br/><br/>
+        Your Company<br/>
+        <div class="row my-3">
+            <div class="col-2">
+                <h8>Your Company</h8><br/>
+                <h8>Your Company</h8><br/>
+                <h8></h8><br/>
+                <h8>Your Company</h8><br/>
+            </div>
+            <div class="col-5">
+                <h8>: <span t-field="doc.company_id"/></h8><br/>
+                <h8>: Your Company</h8><br/>
+                <h8> Your Company</h8><br/>
+                <h8>: Your Company</h8><br/>
+            </div>
+        </div>
+    </p>
+    <div class="row my-3">
+        <div class="col-9">
+        </div>
+        <div class="col-3">
+            <h8 class="text-right"><span t-field="doc.company_id"/></h8><br/><br/><br/>
+            <h8 class="text-right">NAME</h8>
+            <div id="signature">
+            </div>
+            <h8 class="text-right">Project Manager</h8><br/><br/>
+        </div>
+    </div>
+    </xpath>
+</t>

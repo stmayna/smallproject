@@ -1,0 +1,126 @@
+<t t-name="studio_report_document">
+<div class="page"/>
+    <xpath expr="/t/div" position="inside">
+    <style>
+        hr { border-bottom: 2px black solid; border-top: 2px black solid; height: 1px; margin-top: 5px}
+    </style>
+    <header>
+    <div class="text-center">
+    <h5><strong>YOUR COMPANY</strong></h5>
+    <h6><strong>YOUR COMPANY</strong></h6>
+    <br/>
+    </div>
+        <div class="row">
+            <div class="col-2">
+                <img class="img-fluid" src="SOURCETOYOURIMAGE"/>
+            </div>
+            <div class="col-5">
+                <h7><strong>YOUR COMPANY</strong></h7><br/>
+                <h7>YOUR COMPANY</h7><br/>
+                <h7>YOUR COMPANY</h7><br/><br/>
+            </div>
+            <div class="col-5">
+                <h7><strong>YOUR COMPANY</strong></h7><br/>
+                <h7>YOUR COMPANY</h7><br/>
+                <h7>YOUR COMPANY</h7>
+            </div>
+        </div>
+    </header>
+    <hr/>
+    </xpath>
+        <xpath expr="/t/div/hr" position="after">
+        <div class="row my-3">
+            <div class="col">
+                <br/>
+                <h5 class="text-center"><strong>RESERVATION</strong></h5>
+                <br/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <p><strong>WORK ORDER NO: </strong><span t-field="doc.x_studio_work_order"/></p>
+            </div>
+            <div class="col-6">
+                <p><strong>CREATED ON: </strong><span t-field="doc.create_date"/></p>
+            </div>
+            <div class="col-6">
+                <p><strong>RESERVASI NO: </strong><span t-field="doc.x_studio_work_order"/></p>
+            </div>
+            <div class="col-6">
+                <p><strong>CREATED BY: </strong><span t-field="doc.create_uid"/></p>
+            </div>
+            <div class="col-12">
+                <p><strong>EQUIPMENT NO: </strong><span t-field="doc.x_studio_equipment"/></p>
+            </div>
+        </div>
+        <br/>
+    </xpath>
+    <xpath expr="/t/div/div[4]" position="after">
+        <table class="table o_report_block_table">
+            <thead>
+                <tr>
+                    <th>NO</th>
+                    <th>PRODUCT</th>
+                    <th>QTY</th>
+                    <th>UoM</th>
+                    <th>ANALYTIC ACCOUNT</th>
+                    <th>PRICE</th>
+                    <th>REQMT DATE</th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-set="i" t-value="1"/>
+                <tr t-foreach="doc.x_reservation_line_ids_f5c60" t-as="table_line">
+                    <td>
+                        <span t-esc="i"/>
+                        <t t-set="i" t-value="i+1"/>
+                    </td>
+                    <td>
+                        <span t-field="table_line.x_studio_many2one_field_vym0h"/>
+                    </td>
+                    <td>
+                        <span t-field="table_line.x_studio_quantity"/>
+                    </td>
+                    <td>
+                        <span t-field="table_line.x_studio_uom"/>
+                    </td>
+                    <td>
+                        <span t-field="table_line.x_studio_many2one_field_S2KQB"/>
+                    </td>
+                    <td>
+                        <span t-field="table_line.x_studio_price_2"/>
+                    </td>
+                    <td>
+                        <span t-field="table_line.x_studio_reqmt_date"/>
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+    </xpath>
+    <xpath expr="/t/div/table" position="after">
+        <div class="row my-3">
+            <div class="col-12 text-right">
+                <br/>
+                <p><strong>GRAND TOTAL: </strong><span t-field="doc.x_studio_value"/></p>
+                <br/>
+            </div>
+        </div>
+    </xpath>
+    <xpath expr="/t/div/div[5]" position="after">
+    <div class="row">
+        <div class="col-12 my-3 text-right">
+            <div class="row" t-foreach="doc.x_studio_approval_list" t-as="line">
+                <div class="col">
+                    <p class="font-weight-bold">Approved By:</p>
+                        <p>
+                            <span t-esc="line.x_studio_many2one_field_mlJBb.x_studio_many2one_field_users.name"/>
+                        </p>
+                        <p class="font-italic">
+                            <span t-esc="line.x_studio_many2one_field_mlJBb.x_name"/>
+                        </p>
+                </div>
+            </div>
+        </div>
+    </div>
+  </xpath>
+</t>
