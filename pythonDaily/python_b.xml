@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_picking_slip">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <style type="text/css">
+                    hr { border-bottom: 2px black solid;  height: 1px; margin-top: 5px}
+                    div.ktc_report_container{
+                      font-size: 80%;
+                    }
+                    </style>
+                    <div class="ktc_report_container">
+                        <header>
+                            <div class="row">
+                                <div class="col-2 text-left">
+                                    <img class="img-fluid" t-att-src="image_data_uri(o.company_id.logo)" alt="Company"/>
+                                </div>
+                                <div class="col-6">
+                                    <p>
+                                        <br/>
+                                        <t t-esc="o.company_id.street"/>
+                                        <t t-esc="o.company_id.street2"/>
+                                        <br/>
+                                        <span t-field="o.company_id.city"/>
+                                        <span t-field="o.company_id.state_id.name"/>
+                                        <span t-field="o.company_id.zip"/>
+                                        <span t-field="o.company_id.country_id.name"/>
+                                        <br/>
+                                        <t t-esc="o.company_id.phone"/>
+                                        <t t-esc="o.company_id.mobile"/>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12" style="display: flex; justify-content: center; align-items: center;">
+                                    <div style="font-weight:bold;font-size:20px;">
+                                        <t t-if="o.picking_seq_code == 'IN'">
+                                            <p>
+                                            GOODS RECEIPTS
+                                            </p>
+                                        </t>
+                                        <t t-if="o.picking_seq_code == 'INT'">
+                                            <p>
+                                            INTERNAL TRANSFER
+                                            </p>
+                                        </t>
+                                        <t t-if="o.picking_seq_code == 'OUT'">
+                                            <p>
+                                            GOODS ISSUE
+                                            </p>
+                                        </t>
+                                        <t t-if="o.picking_seq_code == 'REV'">
+                                            <p>
+                                            GOODS RETURN TO VENDOR
+                                            </p>
+                                        </t>
+                                        <t t-if="o.picking_seq_code == 'RFW'">
+                                            <p>
+                                            GOODS RETURN FROM WORKSHOP
+                                            </p>
+                                        </t>
+                                        <t t-if="o.picking_seq_code == 'PICK'">
+                                            <p>
+                                            PICKING DOCUMENT
+                                            </p>
+                                        </t>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12" style="display: flex; justify-content: center; align-items: center;">
+                                    <div style="font-weight:bold;font-size:20px;">
+                                        <span t-esc="o.name"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </header>
+                    </div>
+                    <div class="page">
+                        <hr/>
+                        <div class="row my-3">
+                            <div class="col-6">
+                                <table class="table table-borderless">
+                                    <thead>
+                                        <tr>
+                                            <th style="vertical-align: top;">
+                                                <span style="margin:2px;">Date</span>
+                                            </th>
+                                            <td>:
+                                                <span t-field="o.scheduled_date"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="vertical-align: top;">
+                                                <span style="margin:2px;">Partner</span>
+                                            </th>
+                                            <td>:
+                                                <span t-field="o.partner_id"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="vertical-align: top;">
+                                                <span style="margin:2px;">Site Code</span>
+                                            </th>
+                                            <td>:
+                                                <span t-field="o.warehouse_id"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="vertical-align: top;">
+                                                <span style="margin:2px;">Unit ID</span>
+                                            </th>
+                                            <td>:
+                                                <span t-field="o.unit_id"/>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="col-6">
+                                <table class="table table-borderless">
+                                    <thead>
+                                        <tr>
+                                            <th style="vertical-align: top;">
+                                                <span style="margin:2px;">Requested by Mechanic</span>
+                                            </th>
+                                            <td>:
+                                                <span t-field="o.request_by"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="vertical-align: top;">
+                                                <span style="margin:2px;">Source Document</span>
+                                            </th>
+                                            <td>:
+                                                <span t-field="o.origin"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="vertical-align: top;">
+                                                <span style="margin:2px;">Source Location</span>
+                                            </th>
+                                            <td>:
+                                                <span t-field="o.location_id"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="vertical-align: top;">
+                                                <span style="margin:2px;">Delivery Order Document</span>
+                                            </th>
+                                            <td>:
+                                                <!-- <span t-field="o.name"/> -->
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="vertical-align: top;">
+                                                <span style="margin:2px;">WO/RO Document</span>
+                                            </th>
+                                            <td>:
+                                                <span t-field="o.work_order_id"/>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="vertical-align: top;">
+                                                <span style="margin:2px;">Shipment Document</span>
+                                            </th>
+                                            <td>:
+                                                <!-- <span t-field="o.name"/> -->
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th style="vertical-align: top;">
+                                                <span style="margin:2px;">GI Document</span>
+                                            </th>
+                                            <td>:
+                                                <span t-field="o.internal_request_id"/>
+                                            </td>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row my-3">
+                            <div class="col-12">
+                                <table class="table table-sm o_main_table">
+                                    <tr style="background-color:#ddd; font-weight: bold; text-align: center;">
+                                        <th>No</th>
+                                        <th>Product</th>
+                                        <th>Manufacturer Part Number</th>
+                                        <th>Quantity</th>
+                                        <th>UoM</th>
+                                    </tr>
+                                    <t t-set="i" t-value="1"/>
+                                    <tr t-foreach="o.move_ids_without_package" t-as="return_table" style=" text-align: center;">
+                                        <td style="text-align: left;">
+                                            <span style="margin:5px;" t-esc="i" />
+                                            <t t-set="i" t-value="i+1" />
+                                        </td>
+                                        <td style="text-align: left;">
+                                            <span style="margin:5px;" t-field="return_table.product_id"/>
+                                        </td>
+                                        <td style="text-align: left;">
+                                            <span style="margin:5px;" t-field="return_table.manufacturer_part_number"/>
+                                        </td>
+                                        <td style="text-align: left;">
+                                            <span style="margin:5px;" t-field="return_table.product_uom_qty"/>
+                                        </td>
+                                        <td style="text-align: right;">
+                                            <span style="margin:5px;" t-field="return_table.product_uom"/>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row" style="font-size:12pt;">
+                            <div class="col-12 my-3 text-right">
+                                <div class="row" t-foreach="o.release_strategy_ids" t-as="line">
+                                    <t t-if="line.state == 'approved'">
+                                        <div class="col">
+                                            <p t-if="line.write_date">
+                                                <span t-esc="line.write_date.strftime('%Y-%m-%d')"/>
+                                            </p>
+                                            <p class="font-weight-bold">Approved By</p>
+                                            <br/>
+                                            <br/>
+                                            <p>
+                                                <span t-esc="line.user_id.name"/>
+                                            </p>
+                                            <t t-if="line.note">
+                                                <p>
+                                                Note:
+                                                    <span t-esc="line.note"/>
+                                                </p>
+                                            </t>
+                                        </div>
+                                    </t>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>

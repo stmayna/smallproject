@@ -1,8 +1,8 @@
 import filecmp
 import difflib
 
-file1 = "/home/mayns/smallproject/pythonDaily/xml_a.xml"
-file2 = "/home/mayns/smallproject/pythonDaily/xml_b.xml"
+file1 = "/home/mayns/smallproject/pythonDaily/python_a.xml"
+file2 = "/home/mayns/smallproject/pythonDaily/python_b.xml"
 
 # Read the contents of the files
 with open(file1, 'r') as f1, open(file2, 'r') as f2:
