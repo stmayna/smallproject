@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <style>
+        table {
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+
+        .delete-btn {
+            cursor: pointer;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Your Shopping Cart</h1>
+    </header>
+
+    <table>
+        <tr>
+            <th>Product Name</th>
+            <th>Price</th>
+        </tr>
+        <!-- Cart entries will be dynamically added here using JavaScript -->
+    </table>
+
+    <p>Total Price: Rp <span id="totalPrice">0.00</span></p>
+
+    <footer>
+        <p>&copy; 2023 Simple Online Shop. All rights reserved.</p>
+    </footer>
+
+    <a href="index.html">Back to Catalogue</a> 
+
+    <script>
+        // JavaScript to display cart contents and handle delete functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            // Get the cart from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Display each product in the cart
+            let tableBody = document.querySelector('table');
+            let totalPriceElement = document.getElementById('totalPrice');
+            let total = 0;
+
+            cart.forEach((product, index) => {
+                let row = tableBody.insertRow(-1);
+                let cell1 = row.insertCell(0);
+                let cell2 = row.insertCell(1);
+                let cell3 = row.insertCell(2);
+                cell1.textContent = product.name;
+                cell2.textContent = `RP ${product.price.toFixed(2)}`;
+                
+                // Add a delete button for each item
+                let deleteBtn = document.createElement('span');
+                deleteBtn.className = 'delete-btn';
+                deleteBtn.innerHTML = '&#x2716;'; // U
+                deleteBtn.onclick = function () {
+                    deleteCartItem(index);
+                };
+                cell3.appendChild(deleteBtn);
+
+                // Calculate total price
+                total += product.price;
+            });
+
+            // Display total price
+            totalPriceElement.textContent = total.toFixed(2);
+        });
+
+        // Function to delete a cart item
+        function deleteCartItem(index) {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Remove the selected item
+            cart.splice(index, 1);
+
+            // Save the updated cart back to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Reload the page to update the display
+            location.reload();
+        }
+    </script>
+
+
+</body>
+</html>

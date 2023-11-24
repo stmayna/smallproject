@@ -5,7 +5,7 @@ from tkinter import simpledialog, messagebox
 def PilihBarang():
     def choose_items():
         input_barang = int(entry_barang.get())
-        if 1 <= input_barang <= 8:
+        if 1 <= input_barang <= 6:
             input_ukuran = entry_ukuran.get().upper()
             if input_ukuran in ["S", "M", "L", "XL"]:
                 barang_dipilih.append(input_barang)
@@ -15,7 +15,7 @@ def PilihBarang():
             else:
                 error_label.config(text="Maaf, ukuran tidak tersedia. Silahkan pilih kembali ukuran yang ingin Anda pilih (S/M/L/XL).")
         else:
-            error_label.config(text="Maaf, barang tidak tersedia. Silahkan pilih kembali barang yang ingin Anda beli (1-8).")
+            error_label.config(text="Maaf, barang tidak tersedia. Silahkan pilih kembali barang yang ingin Anda beli (1-6).")
 
 
     def update_item_list():
@@ -30,7 +30,7 @@ def PilihBarang():
     item_window.title("Pilih Barang")
     
     # Create a label and an entry for selecting items
-    select_label = tk.Label(item_window, text="Silahkan masukkan nomor barang yang akan dibeli (1-8):")
+    select_label = tk.Label(item_window, text="Silahkan masukkan nomor barang yang akan dibeli (1-6):")
     entry_barang = tk.Entry(item_window)
     
     # Create a label and an entry for selecting sizes
@@ -104,8 +104,6 @@ product_info = [
     (4, "Varsity Jacket", 350000, "S, M, L, XL", "images/varsity_jacket.png"),
     (5, "Midi Skirt", 90000, "S, M, L, XL", "images/midi_skirt.png"),
     (6, "Baggy Jeans", 185000, "S, M, L, XL", "images/baggy_jeans.png"),
-    (7, "Jogger Pants", 150000, "S, M, L, XL", "images/jogger_pants.png"),
-    (8, "Long Dress", 200000, "S, M, L, XL", "images/long_dress.png")
 ]
 
 # Create a dictionary to map products to their image paths
@@ -128,7 +126,7 @@ for row, data in enumerate(product_info):
 
 # Define the items
 barang = ["Nama Barang", "Knit Cardigan", "Longsleeve", "Denim Jacket", "Varsity Jacket",
-          "Midi Skirt", "Baggy Jeans", "Jogger Pants", "Long Dress"]
+          "Midi Skirt", "Baggy Jeans"]
 nomor = [i for i in range(1, len(barang))]
 nomor.insert(0, "No")
 harga = [100000, 70000, 200000, 350000, 90000, 185000, 150000, 200000]

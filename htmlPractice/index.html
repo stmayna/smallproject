@@ -1,10 +1,120 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>Mayna's Page</title>
-  </head>
-  <body>
-    I learn HTML again.
-    Test.
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Online Shop</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+            text-align: center;
+        }
+
+        img {
+            max-width: 100px;
+            max-height: 100px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to Our Online Shop</h1>
+    </header>
+
+    <table>
+        <tr>
+            <td>
+                <img src="images/baggy_jeans.png" alt="Baggy Jeans">
+                <h2>Baggy Jeans</h2>
+                <p>Description of Baggy Jeans.</p>
+                <p>Price: Rp 19.99</p>
+                <button onclick="addToCart('Baggy Jeans', 19.99)">Add to Cart</button>
+            </td>
+            <td>
+                <img src="images/jeans_jacket.png" alt="Jeans Jacket">
+                <h2>Jeans Jacket</h2>
+                <p>Description of Jeans Jacket.</p>
+                <p>Price: Rp 29.99</p>
+                <button onclick="addToCart('Jeans Jacket', 29.99)">Add to Cart</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="images/jogger_pants.png" alt="Jogger Pants">
+                <h2>Jogger Pants</h2>
+                <p>Description of Jogger Pants.</p>
+                <p>Price: Rp 18.99</p>
+                <button onclick="addToCart('Jogger Pants', 18.99)">Add to Cart</button>
+            </td>
+            <td>
+                <img src="images/knit_cardigan.png" alt="Knit Cardigan">
+                <h2>Knit Cardigan</h2>
+                <p>Description of Knit Cardigan.</p>
+                <p>Price: Rp 25.99</p>
+                <button onclick="addToCart('Knit Cardigan', 25.99)">Add to Cart</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="images/jogger_pants.png" alt="Jogger Pants">
+                <h2>Jogger Pants</h2>
+                <p>Description of Jogger Pants.</p>
+                <p>Price: Rp 18.99</p>
+                <button onclick="addToCart('Jogger Pants', 18.99)">Add to Cart</button>
+            </td>
+            <td>
+                <img src="images/knit_cardigan.png" alt="Knit Cardigan">
+                <h2>Knit Cardigan</h2>
+                <p>Description of Knit Cardigan.</p>
+                <p>Price: Rp 25.99</p>
+                <button onclick="addToCart('Knit Cardigan', 25.99)">Add to Cart</button>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <img src="images/jogger_pants.png" alt="Jogger Pants">
+                <h2>Jogger Pants</h2>
+                <p>Description of Jogger Pants.</p>
+                <p>Price: Rp 18.99</p>
+                <button onclick="addToCart('Jogger Pants', 18.99)">Add to Cart</button>
+            </td>
+            <td>
+                <img src="images/men-jogger.jpg" alt="Men Jogger">
+                <h2>Men Jogger</h2>
+                <p>This is a comfy clothes.</p>
+                <p>Price: Rp 25.99</p>
+                <button onclick="addToCart('Men Jogger', 25.99)">Add to Cart</button>
+            </td>
+        </tr>
+    </table>
+
+    <a href="cart.html">View Cart</a> 
+
+    <footer>
+        <p>&copy; 2023 Simple Online Shop. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // JavaScript to handle adding products to the cart
+        function addToCart(productName, price) {
+            // Get or initialize the cart array from localStorage
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            // Add the product to the cart
+            cart.push({ name: productName, price: price });
+
+            // Save the updated cart back to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            alert('Product added to the cart!');
+        }
+    </script>
+
+</body>
 </html>
